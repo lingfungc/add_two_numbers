@@ -11,5 +11,11 @@
 # @return {ListNode}
 
 def add_two_numbers(l1, l2)
-
+  p l1 = l1.reverse.join.to_i
+  p l2 = l2.reverse.join.to_i
+  p sum_l = (l1 + l2).to_s.split('')
 end
+
+l1 = [2,4,3]
+l2 = [5,6,4]
+add_two_numbers(l1, l2)
