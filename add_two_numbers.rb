@@ -11,9 +11,20 @@
 # @return {ListNode}
 
 def add_two_numbers(l1, l2)
-  l1 = l1.reverse.join.to_i
-  l2 = l2.reverse.join.to_i
-  sum_l = (l1 + l2).to_s.split('').reverse
+  node1 = l1
+  node2 = l2
+  carry = false
+  head_int = node1.var + node2.var
+
+  if head_int > 9
+    carry = true
+    head_int -= 10
+  end
+
+  root = ListNode.new(head_int)
+  last = root
+  node1 = node1.next
+  node2 = node2.next
 end
 
 l1 = [2,4,3]
