@@ -20,5 +20,15 @@ def add_two_numbers(l1, l2)
   result = current
   carry = false
 
+  while l1 || l2 || carry
+    sum = 0
+    val1 = l1.nil? ? 0 : l1.val
+    val2 = l2.nil? ? 0 : l2.val
+    sum = carry ? val1 + val2 + 1 : val1 + val2
 
+    current.val = sum
+    current.next = current
+  end
+
+  result
 end
