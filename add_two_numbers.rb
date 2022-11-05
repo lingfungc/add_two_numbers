@@ -16,7 +16,7 @@ def add_two_numbers(l1, l2)
   return l1 if l2.nil?
   return l2 if l1.nil?
 
-  current = ListNode.new()
+  current = ListNode.new
   result = current
   carry = false
 
