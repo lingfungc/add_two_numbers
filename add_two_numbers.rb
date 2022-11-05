@@ -35,18 +35,19 @@ def add_two_numbers(l1, l2)
     # Update current.val to sum
     # p current
     # p result
+    # We base on current.next to execute the ListNode.new(sum) iteration
     current.next = ListNode.new(sum)
     current = current.next
     # p current
     # p result
 
-    # Check if l1 and l2 is already nil or not
+    # Check if l1 and l2 is already nil or not, to avoid no method error on l1.next when l1 is nil
     l1 = l1.nil? ? nil : l1.next
     l2 = l2.nil? ? nil : l2.next
   end
 
   # p result
-  # result.next is to skip the val = 0 at the first when we created the current = ListNode.new
+  # result.next is to ignore the first val (which is 0) when we created current = ListNode.new
   result.next
 end
 
