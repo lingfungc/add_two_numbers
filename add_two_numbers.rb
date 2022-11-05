@@ -1,11 +1,11 @@
 # Definition for singly-linked list.
-# class ListNode
-#     attr_accessor :val, :next
-#     def initialize(val = 0, _next = nil)
-#         @val = val
-#         @next = _next
-#     end
-# end
+class ListNode
+    attr_accessor :val, :next
+    def initialize(val = 0, _next = nil)
+        @val = val
+        @next = _next
+    end
+end
 # @param {ListNode} l1
 # @param {ListNode} l2
 # @return {ListNode}
@@ -32,18 +32,22 @@ def add_two_numbers(l1, l2)
     carry = sum / 10
     sum = sum % 10
 
+    # Update current.val to sum
+    # p current
+    # p result
+    current.next = ListNode.new(sum)
+    current = current.next
+    # p current
+    # p result
+
     # Check if l1 and l2 is already nil or not
     l1 = l1.nil? ? nil : l1.next
     l2 = l2.nil? ? nil : l2.next
-
-    # Update current.val to sum
-    current.val = sum
-    # Check if current is the last node or not
-    current.next = l1.nil? && l2.nil? ? nil : ListNode.new
-    current = current.next
   end
 
-  result
+  # p result
+  # result.next is to skip the val = 0 at the first when we created the current = ListNode.new
+  result.next
 end
 
 # Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
@@ -51,3 +55,21 @@ end
 
 # Input: l1 = [7], l2 = [8]
 # Output: [5,1]
+
+l1 = ListNode.new(7)
+l2 = ListNode.new(8)
+
+add_two_numbers(l1, l2)
+
+# <ListNode:0x000000010509d5e8 @val=0, @next=nil>
+# <ListNode:0x000000010509d5e8 @val=0, @next=nil>
+# <ListNode:0x000000010509cda0 @val=5, @next=nil>
+# <ListNode:0x000000010509d5e8 @val=0, @next=#<ListNode:0x000000010509cda0 @val=5, @next=nil>>
+
+# <ListNode:0x000000010509cda0 @val=5, @next=nil>
+# <ListNode:0x000000010509d5e8 @val=0, @next=#<ListNode:0x000000010509cda0 @val=5, @next=nil>>
+# <ListNode:0x000000010509c008 @val=1, @next=nil>
+# <ListNode:0x000000010509d5e8 @val=0, @next=#<ListNode:0x000000010509cda0 @val=5, @next=#<ListNode:0x000000010509c008 @val=1, @next=nil>>>
+
+# <ListNode:0x000000010509d5e8 @val=0, @next=#<ListNode:0x000000010509cda0 @val=5, @next=#<ListNode:0x000000010509c008 @val=1, @next=nil>>>
+# <ListNode:0x000000010509cda0 @val=5, @next=#<ListNode:0x000000010509c008 @val=1, @next=nil>>
