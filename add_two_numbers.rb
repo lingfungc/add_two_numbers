@@ -40,6 +40,7 @@ def add_two_numbers(l1, l2)
     current.val = sum
     # Check if current is the last node or not
     current.next = l1.nil? && l2.nil? ? nil : ListNode.new
+    current = current.next
   end
 
   result
